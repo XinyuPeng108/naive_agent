@@ -6,5 +6,5 @@
 
 class MockModel : public Model {
 public:
-    std::string generate_reply(const std::vector<Message>& history) const override;
+    ModelResponse generate_reply(const std::vector<Message>& history) const override;
 };

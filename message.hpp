@@ -1,14 +1,17 @@
 #pragma once
 #include <string>
+#include <optional>
+
+#include "model_response.hpp"
 
 enum class Role {
     user,
-    agent
+    agent,
+    tool
 };
 
 struct Message{
     Role role;
+    std::optional<ToolCall> tool_call;
     std::string content;
-
-    Message(Role _role, std::string _content): role(_role), content(_content) {}
 };

@@ -35,7 +35,7 @@ std::cin.getline()
 1. 私有成员在main函数域内不可见，只能通过的类内的公开函数，让Agent操作他；
 2. const修饰不修改任何成员的函数。
 
-## Stage 3:
+## Stage 3: support pluggable models with ownership validation
 ### 实现功能
 1. 希望历史记录能够区分“谁的回复“ -- 设计`struct Message`，记录role和content。其中，role的类型为`enum class Role`;
 2. `Model`类实现的功能：`generate_reply`函数，提取`history`的最后一条记录生成回答。

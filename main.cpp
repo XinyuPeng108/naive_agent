@@ -17,8 +17,13 @@ int main()
         if(!std::getline(std::cin, input)) break; 
         if(input == "/exit") break;
         if(input != "") {
-            std::cout << "Agent> " << agent.respond(input) << "\n";
-            std::cout << "History: " << agent.history_size() << "\n";
+            try{
+                auto response = agent.respond(input);
+                std::cout << "Agent> " << response << "\n";
+            }catch (const std::exception& e) {
+                std::cerr << e.what() << '\n';
+            }
+            // std::cout << "History: " << agent.history_size() << "\n";
         }
 
     } while(true); 

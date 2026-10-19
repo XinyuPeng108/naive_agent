@@ -3,10 +3,11 @@
 #include <vector>
 
 #include "message.hpp"
+#include "model_response.hpp"
 
 class Model {
 public:
     virtual ~Model() = default; 
 
-    virtual std::string generate_reply(const std::vector<Message>& history) const = 0;
+    virtual ModelResponse generate_reply(const std::vector<Message>& history) const = 0;
 };
