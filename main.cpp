@@ -1,27 +1,16 @@
 #include <iostream>
 #include <string>
-#include <vector>
+#include <memory>
+#include <stdexcept>
 
-class Agent{
-private:
-    std::vector<std::string> inputs;
-
-public:
-    std::string respond(const std::string& input) {
-        inputs.push_back(input); //inputs 是一个私有成员，其操作只能封装在类内
-        return "received: " + input;
-    }
-
-    long long history_size() const{ 
-        return inputs.size();
-    }
-};
-
+#include "agent.hpp"
+#include "mock_model.hpp"
 
 int main()
 {
     std::string input;
-    Agent agent;
+    Agent agent(std::make_unique<MockModel>());
+
     do {
         std::cout << "You> ";
         
